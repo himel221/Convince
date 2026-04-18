@@ -1,0 +1,529 @@
+/* About.css - Dynamic & Modern Design for Convince Group */
+
+/* ===== Base & Variables ===== */
+:root {
+  --primary: #1e3a8a;       /* deep brand blue */
+  --primary-light: #3b82f6;
+  --secondary: #7c3aed;      /* purple accent */
+  --accent: #f59e0b;         /* warm gold */
+  --dark: #0f172a;
+  --gray: #475569;
+  --light: #f8fafc;
+  --gradient-1: linear-gradient(135deg, #1e3a8a, #3b82f6, #7c3aed);
+  --gradient-2: linear-gradient(145deg, #7c3aed, #c084fc);
+  --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
+  --shadow-md: 0 20px 30px -10px rgba(30, 58, 138, 0.25);
+  --shadow-hover: 0 30px 40px -15px rgba(124, 58, 237, 0.4);
+  --border-radius-card: 2rem 1rem 2rem 1rem;
+  --border-radius-hover: 1rem 2rem 1rem 2rem;
+  --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== Global ===== */
+.about-page {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--dark);
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===== Section Titles ===== */
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.02em;
+  margin-bottom: 3.5rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+  background: linear-gradient(145deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 5px;
+  background: var(--gradient-1);
+  border-radius: 6px;
+  box-shadow: 0 2px 15px var(--primary-light);
+  transition: width 0.4s ease;
+}
+
+.section-title:hover::after {
+  width: 200px;
+}
+
+/* ===== Company Overview ===== */
+.company-overview {
+  padding: 5rem 0;
+  background: linear-gradient(120deg, #f0f4ff, #ffffff);
+  position: relative;
+  isolation: isolate;
+}
+
+.company-overview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(124, 58, 237, 0.08), transparent 50%);
+  z-index: -1;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.overview-text h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+}
+
+.overview-text p {
+  color: var(--gray);
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  padding-left: 0.5rem;
+  border-left: 3px solid transparent;
+  transition: border 0.2s;
+}
+
+.overview-text p:hover {
+  border-left-color: var(--primary-light);
+}
+
+.overview-image {
+  border-radius: var(--border-radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  background: white;
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+}
+
+.overview-image:hover {
+  transform: scale(1.02) rotate(1deg);
+  border-radius: var(--border-radius-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+.overview-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1.5rem 0.5rem 1.5rem 0.5rem;
+  transition: transform 0.8s;
+}
+
+.overview-image:hover img {
+  transform: scale(1.08);
+}
+
+/* ===== Vision, Mission & Values ===== */
+.vision-mission {
+  padding: 5rem 0;
+  background: var(--light);
+  position: relative;
+}
+
+.vision-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.vision-box, .mission-box {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(8px);
+  padding: 2.8rem 2.2rem;
+  border-radius: var(--border-radius-card);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(255,255,255,0.8);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.vision-box::before, .mission-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 0;
+  background: var(--gradient-2);
+  transition: height 0.5s ease;
+}
+
+.vision-box:hover::before, .mission-box:hover::before {
+  height: 100%;
+}
+
+.vision-box:hover, .mission-box:hover {
+  transform: translateY(-15px) scale(1.01);
+  border-radius: var(--border-radius-hover);
+  background: white;
+  box-shadow: var(--shadow-hover);
+}
+
+.vision-box h3, .mission-box h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(145deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.values-section h3 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(145deg, var(--primary), #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 2rem;
+}
+
+.value-item {
+  background: var(--gradient-1);
+  color: white;
+  padding: 2.2rem 1.5rem;
+  border-radius: 2.5rem 1rem 2.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 15px 30px -10px var(--primary);
+  transition: var(--transition);
+  cursor: default;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.value-item:hover {
+  transform: scale(1.07) translateY(-10px);
+  border-radius: 1rem 2.5rem 1rem 2.5rem;
+  background: linear-gradient(145deg, var(--secondary), var(--primary-light));
+  box-shadow: 0 30px 40px -12px var(--secondary);
+}
+
+.value-item h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.value-item p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* ===== Chairman Message ===== */
+.chairman-message {
+  padding: 5rem 0;
+  background: linear-gradient(145deg, #eef2ff, #faf5ff);
+}
+
+.message-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.chairman-image {
+  border-radius: 100%;
+  overflow: hidden;
+  border: 5px solid white;
+  box-shadow: 0 30px 35px -15px var(--primary);
+  transition: var(--transition);
+  aspect-ratio: 1/1;
+}
+
+.chairman-image:hover {
+  border-radius: 100%;
+  border-color: var(--secondary);
+  transform: rotate(3deg) scale(1.02);
+}
+
+.chairman-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s;
+}
+
+.message-content h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(145deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.quote-mark {
+  font-size: 6rem;
+  font-family: serif;
+  color: var(--primary-light);
+  opacity: 0.2;
+  line-height: 0.7;
+  margin-bottom: 0.5rem;
+  transition: 0.3s;
+}
+
+.message-grid:hover .quote-mark {
+  opacity: 0.4;
+  transform: translateX(10px);
+}
+
+.message-text1 {
+  font-size: 1.1rem;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  padding: 1rem 2rem 1rem 2.5rem;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(4px);
+  border-radius: 60px 20px 60px 20px;
+  box-shadow: inset 0 1px 4px rgba(255,255,255,0.8);
+  transition: 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.message-text1:hover {
+  border-left-color: var(--accent);
+  background: white;
+}
+
+.chairman-signature {
+  margin-top: 2.5rem;
+}
+
+.chairman-name {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1e1e5a, #6d28d9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.chairman-title {
+  font-size: 1rem;
+  color: var(--gray);
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* ===== (Commented sections remain styled for future use) ===== */
+/* Board & leadership cards would follow similar dynamic patterns */
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .message-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.5rem; }
+  
+  .vision-mission-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .message-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .chairman-image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .overview-text h2 {
+    font-size: 2rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .overview-text p {
+    font-size: 0.95rem;
+  }
+  
+  .message-text1 {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+/* ===== subtle animation for extra life ===== */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.overview-image {
+  animation: float 8s ease-in-out infinite;
+}
+
+.chairman-image {
+  animation: float 10s ease-in-out infinite;
+}
+
+/* utility hover for any image */
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* ===== (Commented sections remain styled for future use) ===== */
+/* Board & leadership cards would follow similar dynamic patterns */
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .message-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.5rem; }
+  
+  .vision-mission-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .message-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .chairman-image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .overview-text h2 {
+    font-size: 2rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .overview-text p {
+    font-size: 0.95rem;
+  }
+  
+  .message-text1 {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+/* ===== subtle animation for extra life ===== */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.overview-image {
+  animation: float 8s ease-in-out infinite;
+}
+
+.chairman-image {
+  animation: float 10s ease-in-out infinite;
+}
+
+/* utility hover for any image */
+img {
+  max-width: 100%;
+  height: auto;
+}
