@@ -47,14 +47,14 @@ const Base = ({ children }) => {
             <Link to="/apparels">
               <li className={isActive('/apparels') ? 'nav-item active' : 'nav-item'}>Home</li>
             </Link>
-            <Link to="/#">
-              <li className={isActive('/about') ? 'nav-item active' : 'nav-item'}>Products</li>
+            <Link to="/aproducts">
+              <li className={isActive('/aproducts') ? 'nav-item active' : 'nav-item'}>Products</li>
             </Link>
-            <Link to="/#">
-              <li className={isActive('/companies') ? 'nav-item active' : 'nav-item'}>Buyers</li>
+            <Link to="/abuyers">
+              <li className={isActive('/abuyers') ? 'nav-item active' : 'nav-item'}>Buyers</li>
             </Link>
-            <Link to="/#">
-              <li className={isActive('/products') ? 'nav-item active' : 'nav-item'}>Contact Us</li>
+            <Link to="/acontact">
+              <li className={isActive('/acontact') ? 'nav-item active' : 'nav-item'}>Contact Us</li>
             </Link>
           </div>
         </div>
@@ -92,7 +92,7 @@ const Base = ({ children }) => {
               <li><Link to="/about" className="footer-link">About Us</Link></li>
               <li><Link to="/companies" className="footer-link">Our Companies</Link></li>
               <li><Link to="/products" className="footer-link">Products</Link></li>
-              <li><Link to="/contacts" className="footer-link">Contact Us</Link></li>
+              <li><Link to="/acontact" className="footer-link">Contact Us</Link></li>
             </ul>
           </div>
 

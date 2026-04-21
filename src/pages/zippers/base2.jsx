@@ -47,14 +47,14 @@ const Base2 = ({ children }) => {
             <Link to="/zippers">
               <li className={isActive('/zippers') ? 'nav-item active' : 'nav-item'}>Home</li>
             </Link>
-            <Link to="/#">
-              <li className={isActive('/about') ? 'nav-item active' : 'nav-item'}>Products</li>
+            <Link to="/zproducts">
+              <li className={isActive('zippers/zproducts') ? 'nav-item active' : 'nav-item'}>Products</li>
             </Link>
-            <Link to="/#">
-              <li className={isActive('/companies') ? 'nav-item active' : 'nav-item'}>Buyers</li>
+            <Link to="/zbuyers">
+              <li className={isActive('zippers/zbuyers') ? 'nav-item active' : 'nav-item'}>Buyers</li>
             </Link>
-            <Link to="/#">
-              <li className={isActive('/products') ? 'nav-item active' : 'nav-item'}>Contact Us</li>
+            <Link to="/zcontact">
+              <li className={isActive('/zcontact') ? 'nav-item active' : 'nav-item'}>Contact Us</li>
             </Link>
           </div>
         </div>

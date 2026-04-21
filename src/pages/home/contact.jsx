@@ -1,0 +1,323 @@
+// Contact.jsx - Professional Contact Page Component with CONVINCE GROUP LTD.
+import React, { useEffect, useState } from 'react';
+import Base from '../base.jsx';
+import './contact.css';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState({ submitted: false, error: false, message: '' });
+
+  // Scroll Animation - Fixed to include all sections
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: '0px' }
+    );
+
+    // Added all sections that need animation
+    const sections = document.querySelectorAll(
+      '.contact-container .contact-section-heading, ' +
+      '.contact-container .contact-info-card, ' +
+      '.contact-container .contact-form-container, ' +
+      '.contact-container .map-wrapper, ' +
+      '.contact-container .contact-hours-card, ' +
+      '.contact-container .contact-cta-section'
+    );
+    
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    setFormStatus({
+      submitted: true,
+      error: false,
+      message: 'Thank you for your message! We will get back to you soon.'
+    });
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    setTimeout(() => {
+      setFormStatus({ submitted: false, error: false, message: '' });
+    }, 5000);
+  };
+
+  // Contact Information
+  const contactInfo = {
+    address: "Plot# 68-71, Block# K, Rupnagar, Section: 2, Mirpur, Dhaka-1216",
+    phone: ["9023886", "9002584", "8031776", "8057457"],
+    fax: "880-2-9010401",
+    email: "cal@convincebd.biz",
+    managingDirector: {
+      name: "Mr. Rafez Alam Chowdhury",
+      position: "Managing Director",
+      cell: "+88 01780 154949",
+      email: "cal@convincebd.biz"
+    },
+    director: {
+      name: "Rashik Alam Chowdhury",
+      position: "Director",
+      cell: "+88 01780 154949",
+      email: "rashikchy@gmail.com"
+    }
+  };
+
+  // Google Maps Embed URL - Correct Mirpur Location
+  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.8375!2d90.3635!3d23.8103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c146411837f5%3A0x207f30ae9ebec5f3!2sConvince%20Group!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd";
+
+  return (
+    <Base>
+      <div className="contact-container">
+        {/* Hero Section */}
+        <div className="contact-hero-section">
+          <div className="contact-hero-overlay"></div>
+          <div className="contact-hero-content">
+            <h1 className="contact-hero-title">Contact Us</h1>
+            <p className="contact-hero-subtitle">Get in touch with our team for inquiries, support, or collaboration</p>
+          </div>
+        </div>
+
+        {/* Contact Info & Form Section */}
+        <div className="contact-main-section">
+          <div className="contact-grid">
+            {/* Left Side - Contact Information */}
+            <div className="contact-info-side">
+              <h2 className="contact-section-heading">Get In Touch</h2>
+              <p className="contact-info-description">
+                We're here to help and answer any questions you might have. We look forward to hearing from you.
+              </p>
+
+              {/* Address Card */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon">📍</div>
+                <div className="contact-info-content">
+                  <h3>Office Address</h3>
+                  <p className="contact-address-text">{contactInfo.address}</p>
+                </div>
+              </div>
+
+              {/* Phone Card */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon">📞</div>
+                <div className="contact-info-content">
+                  <h3>Phone Numbers</h3>
+                  <div className="contact-phone-list">
+                    {contactInfo.phone.map((num, idx) => (
+                      <a key={idx} href={`tel:${num}`} className="contact-phone-link">{num}</a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Fax Card */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon">📠</div>
+                <div className="contact-info-content">
+                  <h3>Fax</h3>
+                  <p>{contactInfo.fax}</p>
+                </div>
+              </div>
+
+              {/* Email Card */}
+              <div className="contact-info-card">
+                <div className="contact-info-icon">✉️</div>
+                <div className="contact-info-content">
+                  <h3>Email</h3>
+                  <a href={`mailto:${contactInfo.email}`} className="contact-email-link">{contactInfo.email}</a>
+                </div>
+              </div>
+
+              {/* Managing Director Card */}
+              <div className="contact-info-card contact-person-card">
+                <div className="contact-info-icon">👨‍💼</div>
+                <div className="contact-info-content">
+                  <h3>Managing Director</h3>
+                  <p className="contact-person-name">{contactInfo.managingDirector.name}</p>
+                  <a href={`tel:${contactInfo.managingDirector.cell}`} className="contact-person-cell">
+                    📱 {contactInfo.managingDirector.cell}
+                  </a>
+                </div>
+              </div>
+
+              {/* Director Card */}
+              <div className="contact-info-card contact-person-card">
+                <div className="contact-info-icon">👨‍💼</div>
+                <div className="contact-info-content">
+                  <h3>Director</h3>
+                  <p className="contact-person-name">{contactInfo.director.name}</p>
+                  <a href={`tel:${contactInfo.director.cell}`} className="contact-person-cell">
+                    📱 {contactInfo.director.cell}
+                  </a>
+                  <a href={`mailto:${contactInfo.director.email}`} className="contact-person-email">
+                    ✉️ {contactInfo.director.email}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Contact Form with CONVINCE GROUP LTD. Title */}
+            <div className="contact-form-side">
+              <div className="contact-form-container">
+                {/* Company Title inside Form Card */}
+                <div className="contact-company-header">
+                  <h1 className="contact-company-title">CONVINCE GROUP LTD.</h1>
+                  <p className="contact-company-subtitle">Leading Manufacturer & Exporter of Premium Apparel Products</p>
+                  <p className="contact-company-subtitle-second">Excellence in Knitwear, Sweaters, Vests & Garment Accessories</p>
+                </div>
+                
+                <div className="contact-form-divider"></div>
+                
+                <h2 className="contact-form-title">Send Us a Message</h2>
+                <p className="contact-form-subtitle">We'll respond to your inquiry within 24 hours</p>
+                
+                {formStatus.submitted && (
+                  <div className={`contact-form-alert ${formStatus.error ? 'error' : 'success'}`}>
+                    {formStatus.message}
+                  </div>
+                )}
+                
+                <form onSubmit={handleSubmit} className="contact-form">
+                  <div className="contact-form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your Full Name"
+                      required
+                      className="contact-form-input"
+                    />
+                  </div>
+                  
+                  <div className="contact-form-group">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Your Email Address"
+                      required
+                      className="contact-form-input"
+                    />
+                  </div>
+                  
+                  <div className="contact-form-group">
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      placeholder="Subject"
+                      required
+                      className="contact-form-input"
+                    />
+                  </div>
+                  
+                  <div className="contact-form-group">
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder="Your Message"
+                      rows="5"
+                      required
+                      className="contact-form-textarea"
+                    ></textarea>
+                  </div>
+                  
+                  <button type="submit" className="contact-form-btn">
+                    Send Message
+                    <span className="contact-btn-icon">→</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Map Section */}
+        <div className="contact-map-section">
+          <div className="contact-map-container">
+            <h2 className="contact-section-heading">Find Us Here</h2>
+            <p className="contact-map-subtitle">Visit our office at Mirpur, Dhaka</p>
+            <div className="map-wrapper">
+              <iframe
+                src={mapUrl}
+                title="Convince Group Office Location"
+                className="contact-map-iframe"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        {/* Working Hours Section */}
+        <div className="contact-hours-section">
+          <div className="contact-hours-container">
+            <h2 className="contact-section-heading">Working Hours</h2>
+            <div className="contact-hours-grid">
+              <div className="contact-hours-card">
+                <div className="contact-hours-icon">🕐</div>
+                <div className="contact-hours-info">
+                  <h4>Saturday - Thursday</h4>
+                  <p>9:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+              <div className="contact-hours-card">
+                <div className="contact-hours-icon">🕐</div>
+                <div className="contact-hours-info">
+                  <h4>Friday</h4>
+                  <p>Closed</p>
+                </div>
+              </div>
+              <div className="contact-hours-card">
+                <div className="contact-hours-icon">📞</div>
+                <div className="contact-hours-info">
+                  <h4>Emergency Support</h4>
+                  <p>24/7 Available</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="contact-cta-section">
+          <h2>Ready to Work With Us?</h2>
+          <p>Let's discuss how we can help with your apparel manufacturing needs</p>
+          <div className="contact-cta-buttons">
+            <button className="contact-cta-btn contact-cta-primary">Request a Quote</button>
+            <button className="contact-cta-btn contact-cta-secondary">Schedule a Meeting</button>
+          </div>
+        </div>
+      </div>
+    </Base>
+  );
+};
+
+export default Contact;

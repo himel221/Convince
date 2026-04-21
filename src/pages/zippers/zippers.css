@@ -42,7 +42,7 @@
   --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
   --shadow-primary: 0 4px 14px rgba(var(--primary-rgb), 0.2);
   
-  /* Spacing */
+  /* Spacing - REDUCED */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -52,8 +52,8 @@
   --space-8: 2rem;
   --space-10: 2.5rem;
   --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
+  --space-16: 3rem;
+  --space-20: 4rem;
   
   /* Border Radius */
   --radius-sm: 0.375rem;
@@ -108,7 +108,7 @@ body {
 /* ===== HERO SLIDER SECTION - Professional Size ===== */
 .zipper-hero-wrapper {
   width: 100%;
-  padding: var(--space-8) var(--space-8) var(--space-12);
+  padding: var(--space-4) var(--space-8) var(--space-6);
   background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 100%);
 }
 
@@ -125,7 +125,7 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: var(--space-8) 0;
+  padding: var(--space-4) 0;
 }
 
 /* Slider Height Responsive */
@@ -219,7 +219,7 @@ body {
 .zipper-hero-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
   background: linear-gradient(135deg, rgba(5, 241, 218, 0.98) 0%, rgba(25, 33, 50, 0.98) 100%);
   -webkit-background-clip: text;
@@ -232,7 +232,7 @@ body {
 
 @media (max-width: 768px) {
   .zipper-hero-title {
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-3);
   }
 }
 
@@ -361,15 +361,15 @@ body {
   }
 }
 
-/* ===== SECTION HEADINGS ===== */
+/* ===== SECTION HEADINGS - REDUCED MARGIN ===== */
 .zipper-section-heading {
   text-align: center;
   font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 700;
   color: var(--dark);
-  margin: var(--space-12) 0 var(--space-8);
+  margin: var(--space-8) 0 var(--space-5);
   position: relative;
-  padding-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity var(--transition-slow), transform var(--transition-slow);
@@ -405,9 +405,9 @@ body {
   opacity: 0.7;
 }
 
-/* ===== ABOUT SECTION ===== */
+/* ===== ABOUT SECTION - REDUCED PADDING ===== */
 .zipper-about-section {
-  padding: var(--space-20) var(--space-8);
+  padding: var(--space-8) var(--space-8);
   background: linear-gradient(135deg, var(--gray-100), var(--white));
   width: 100%;
   position: relative;
@@ -447,14 +447,14 @@ body {
 
 .zipper-about-row {
   display: flex;
-  gap: var(--space-20);
+  gap: var(--space-12);
   align-items: center;
 }
 
 @media (max-width: 1024px) {
   .zipper-about-row {
     flex-direction: column;
-    gap: var(--space-12);
+    gap: var(--space-8);
   }
 }
 
@@ -465,7 +465,7 @@ body {
 .zipper-about-heading {
   font-size: clamp(2rem, 4vw, 2.5rem);
   color: var(--dark);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-5);
   font-weight: 700;
   opacity: 0;
   transform: translateY(30px);
@@ -485,13 +485,13 @@ body {
 .zipper-about-paragraph {
   color: var(--gray-700);
   line-height: 1.8;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-5);
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity var(--transition-slow), transform var(--transition-slow);
   position: relative;
-  padding-left: var(--space-6);
+  padding-left: var(--space-4);
   border-left: 3px solid var(--primary);
 }
 
@@ -504,22 +504,22 @@ body {
 .zipper-stats-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-6);
-  margin-top: var(--space-10);
+  gap: var(--space-4);
+  margin-top: var(--space-6);
   width: 100%;
 }
 
 @media (max-width: 992px) {
   .zipper-stats-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-5);
+    gap: var(--space-4);
   }
 }
 
 @media (max-width: 576px) {
   .zipper-stats-container {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-3);
     max-width: 350px;
     margin-left: auto;
     margin-right: auto;
@@ -528,7 +528,7 @@ body {
 
 .zipper-stat-card {
   text-align: center;
-  padding: var(--space-8) var(--space-4);
+  padding: var(--space-5) var(--space-3);
   background: var(--white);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-md);
@@ -542,7 +542,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 180px;
+  min-height: 150px;
   width: 100%;
 }
 
@@ -582,7 +582,7 @@ body {
 
   font-weight: 800;
   color: var(--primary);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -592,7 +592,7 @@ body {
 
 .zipper-stat-label {
   color: var(--gray-600);
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   font-weight: 500;
   margin: 0;
   text-transform: uppercase;
@@ -647,10 +647,10 @@ body {
   box-shadow: 0 30px 60px rgba(var(--primary-rgb), 0.3);
 }
 
-/* ===== PRODUCTS SECTION ===== */
+/* ===== PRODUCTS SECTION - REDUCED PADDING ===== */
 .zipper-products-section {
   width: 100%;
-  padding: var(--space-16) 0 var(--space-20);
+  padding: var(--space-8) 0 var(--space-10);
   background: linear-gradient(135deg, var(--white), var(--gray-100));
   overflow: hidden;
   position: relative;
@@ -702,10 +702,10 @@ body {
 
 .zipper-slider-track {
   display: flex;
-  gap: var(--space-6);
+  gap: var(--space-4);
   animation: zipperSlideRightToLeft 50s linear infinite;
   width: fit-content;
-  padding: var(--space-4) 0;
+  padding: var(--space-2) 0;
 }
 
 .zipper-slider-track:hover {
@@ -796,7 +796,7 @@ body {
 }
 
 .zipper-product-info {
-  padding: var(--space-6);
+  padding: var(--space-4);
   text-align: center;
   background: var(--white);
   position: relative;
@@ -818,7 +818,7 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--dark);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   transition: color var(--transition-base);
 }
 
@@ -834,9 +834,9 @@ body {
   font-weight: 500;
 }
 
-/* ===== CLIENTS SECTION ===== */
+/* ===== CLIENTS SECTION - REDUCED PADDING ===== */
 .zipper-clients-section {
-  padding: var(--space-20) var(--space-8);
+  padding: var(--space-8) var(--space-8);
   background: var(--white);
   width: 100%;
   position: relative;
@@ -847,7 +847,7 @@ body {
   text-align: center;
   color: var(--gray-600);
   font-size: 1.2rem;
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-6);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity var(--transition-slow), transform var(--transition-slow);
@@ -862,9 +862,9 @@ body {
 .zipper-clients-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-6);
+  gap: var(--space-4);
   max-width: 1400px;
-  margin: 0 auto var(--space-12);
+  margin: 0 auto var(--space-8);
 }
 
 @media (max-width: 1200px) {
@@ -882,7 +882,7 @@ body {
 
 .zipper-client-card {
   background: var(--white);
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-5) var(--space-4);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-md);
   text-align: center;
@@ -894,7 +894,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 220px;
+  min-height: 200px;
   position: relative;
   overflow: hidden;
 }
@@ -937,20 +937,20 @@ body {
 }
 
 .zipper-client-logo {
-  height: 120px;
+  height: 100px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-5);
-  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  padding: var(--space-2);
   position: relative;
   z-index: 2;
 }
 
 .zipper-client-img {
   max-width: 130px;
-  max-height: 80px;
+  max-height: 70px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -966,10 +966,10 @@ body {
 }
 
 .zipper-client-name {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--gray-800);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   position: relative;
   z-index: 2;
   transition: color var(--transition-base);
@@ -980,29 +980,29 @@ body {
 }
 
 .zipper-client-country {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--gray-500);
   position: relative;
   z-index: 2;
 }
 
-/* ===== TESTIMONIALS SECTION ===== */
+/* ===== TESTIMONIALS SECTION - REDUCED MARGIN ===== */
 .zipper-testimonials-section {
   max-width: 1400px;
-  margin: var(--space-16) auto;
+  margin: var(--space-8) auto;
 }
 
 .zipper-testimonials-heading {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--dark);
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-6);
   font-weight: 700;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity var(--transition-slow), transform var(--transition-slow);
   position: relative;
-  padding-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
 }
 
 .zipper-testimonials-heading.active {
@@ -1025,26 +1025,26 @@ body {
 .zipper-testimonials-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-5);
 }
 
 @media (max-width: 992px) {
   .zipper-testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
+    gap: var(--space-4);
   }
 }
 
 @media (max-width: 576px) {
   .zipper-testimonials-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-4);
   }
 }
 
 .zipper-testimonial-card {
   background: linear-gradient(135deg, var(--gray-100), var(--white));
-  padding: var(--space-10);
+  padding: var(--space-6);
   border-radius: var(--radius-3xl);
   position: relative;
   transition: all var(--transition-base);
@@ -1071,7 +1071,7 @@ body {
 }
 
 .zipper-quote-mark {
-  font-size: 5rem;
+  font-size: 4rem;
   color: var(--primary);
   opacity: 0.1;
   position: absolute;
@@ -1089,39 +1089,39 @@ body {
 
 .zipper-testimonial-text {
   color: var(--gray-700);
-  line-height: 1.8;
-  margin-bottom: var(--space-6);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
   font-style: italic;
   position: relative;
   z-index: 1;
-  font-size: 1rem;
+  font-size: 0.95rem;
   padding-left: var(--space-2);
 }
 
 .zipper-testimonial-author {
   border-top: 1px solid var(--gray-300);
-  padding-top: var(--space-5);
+  padding-top: var(--space-3);
 }
 
 .zipper-testimonial-author strong {
   display: block;
   color: var(--dark);
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: var(--space-1);
 }
 
 .zipper-testimonial-author span {
   color: var(--gray-500);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
-/* ===== LOGO MARQUEE ===== */
+/* ===== LOGO MARQUEE - REDUCED MARGIN ===== */
 .zipper-logo-marquee {
   overflow: hidden;
-  padding: var(--space-10) 0;
+  padding: var(--space-6) 0;
   background: linear-gradient(135deg, var(--gray-100), var(--white));
   border-radius: var(--radius-3xl);
-  margin-top: var(--space-16);
+  margin-top: var(--space-8);
   position: relative;
   box-shadow: var(--shadow-lg);
 }
@@ -1157,10 +1157,10 @@ body {
 
 .zipper-marquee-wrapper {
   display: flex;
-  gap: var(--space-12);
+  gap: var(--space-8);
   animation: zipperMarquee 45s linear infinite;
   width: fit-content;
-  padding: var(--space-2) 0;
+  padding: var(--space-1) 0;
 }
 
 .zipper-marquee-wrapper:hover {
@@ -1169,7 +1169,7 @@ body {
 
 .zipper-marquee-item {
   flex: 0 0 auto;
-  padding: var(--space-2) var(--space-8);
+  padding: var(--space-1) var(--space-6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1177,7 +1177,7 @@ body {
 }
 
 .zipper-marquee-img {
-  height: 60px;
+  height: 50px;
   width: auto;
   max-width: 140px;
   object-fit: contain;
@@ -1192,9 +1192,9 @@ body {
   transform: scale(1.15);
 }
 
-/* ===== BOARD OF DIRECTORS SECTION ===== */
+/* ===== BOARD OF DIRECTORS SECTION - REDUCED PADDING ===== */
 .zipper-directors-section {
-  padding: var(--space-20) var(--space-8);
+  padding: var(--space-8) var(--space-8);
   background: linear-gradient(135deg, var(--gray-100), var(--white));
   position: relative;
   overflow: hidden;
@@ -1216,8 +1216,8 @@ body {
 .zipper-directors-subtitle {
   text-align: center;
   color: var(--gray-600);
-  font-size: 1.2rem;
-  margin-bottom: var(--space-12);
+  font-size: 1.1rem;
+  margin-bottom: var(--space-8);
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -1232,9 +1232,9 @@ body {
 .zipper-directors-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-10);
+  gap: var(--space-6);
   max-width: 1300px;
-  margin: 0 auto var(--space-12);
+  margin: 0 auto var(--space-8);
   padding: 0 var(--space-5);
   position: relative;
   z-index: 2;
@@ -1304,7 +1304,7 @@ body {
 }
 
 .zipper-director-info {
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-5) var(--space-4);
   text-align: center;
   background: var(--white);
   position: relative;
@@ -1312,22 +1312,22 @@ body {
 }
 
 .zipper-director-name {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--dark);
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--space-1);
   letter-spacing: 0.5px;
   line-height: 1.3;
 }
 
 .zipper-director-designation {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--gray-600);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: var(--space-4);
-  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
   position: relative;
 }
 
@@ -1344,24 +1344,24 @@ body {
 }
 
 .zipper-director-description {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--gray-600);
-  line-height: 1.7;
+  line-height: 1.6;
   margin: 0;
   font-style: italic;
 }
 
-/* ===== PRODUCTION CAPACITY SECTION ===== */
+/* ===== PRODUCTION CAPACITY SECTION - REDUCED PADDING ===== */
 .zipper-capacity-section {
-  padding: var(--space-20) var(--space-5);
+  padding: var(--space-8) var(--space-5);
   background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
   text-align: center;
 }
 
 .zipper-capacity-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--gray-600);
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-6);
   font-weight: 300;
   text-align: center;
 }
@@ -1369,23 +1369,23 @@ body {
 .zipper-capacity-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-6);
+  gap: var(--space-4);
   max-width: 1400px;
   margin: 0 auto;
-  padding: var(--space-5);
+  padding: var(--space-2);
 }
 
 .zipper-capacity-card {
   background: var(--white);
   border-radius: var(--radius-xl);
-  padding: var(--space-6) var(--space-5);
+  padding: var(--space-4) var(--space-4);
   box-shadow: var(--shadow-lg);
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  gap: var(--space-5);
+  gap: var(--space-4);
   text-align: left;
   opacity: 0;
   transform: translateY(30px);
@@ -1408,10 +1408,10 @@ body {
 }
 
 .zipper-capacity-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   background: var(--gray-100);
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1431,16 +1431,16 @@ body {
 }
 
 .zipper-capacity-product {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--dark);
   margin-bottom: var(--space-1);
 }
 
 .zipper-capacity-value {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  color: var(--primary);
+  color: rgb(71, 123, 255);
   margin: 0;
   line-height: 1.2;
 }
@@ -1449,10 +1449,10 @@ body {
   position: absolute;
   top: 10px;
   right: -30px;
-  background: var(--primary);
+  background: #1c1c1c;
   color: var(--white);
   padding: 5px 40px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
   transform: rotate(45deg);
   box-shadow: var(--shadow-sm);
@@ -1480,19 +1480,19 @@ body {
 .zipper-capacity-card:nth-child(11) { animation-delay: 1.1s; }
 .zipper-capacity-card:nth-child(12) { animation-delay: 1.2s; }
 
-/* ===== RESPONSIVE FIXES ===== */
+/* ===== RESPONSIVE FIXES - UPDATED ===== */
 @media (max-width: 1024px) {
   .zipper-about-section,
   .zipper-products-section,
   .zipper-clients-section,
   .zipper-directors-section,
   .zipper-capacity-section {
-    padding: var(--space-16) var(--space-6);
+    padding: var(--space-6) var(--space-6);
   }
-  .zipper-directors-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-8); }
+  .zipper-directors-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
   .zipper-logo-marquee::before,
   .zipper-logo-marquee::after { width: 150px; }
-  .zipper-marquee-img { height: 50px; }
+  .zipper-marquee-img { height: 45px; }
 }
 
 @media (max-width: 768px) {
@@ -1501,22 +1501,22 @@ body {
   .zipper-clients-section,
   .zipper-directors-section,
   .zipper-capacity-section {
-    padding: var(--space-12) var(--space-4);
+    padding: var(--space-5) var(--space-4);
   }
-  .zipper-directors-grid { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto var(--space-8); }
+  .zipper-directors-grid { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto var(--space-5); }
   .zipper-director-image-wrapper { height: 280px; }
-  .zipper-director-name { font-size: 1.3rem; }
-  .zipper-capacity-grid { grid-template-columns: 1fr; gap: var(--space-4); }
-  .zipper-capacity-card { padding: var(--space-5) var(--space-4); }
-  .zipper-capacity-icon { width: 60px; height: 60px; font-size: 2rem; }
-  .zipper-capacity-product { font-size: 1rem; }
-  .zipper-capacity-value { font-size: 1.2rem; }
-  .zipper-capacity-badge { font-size: 0.7rem; padding: 3px 30px; }
+  .zipper-director-name { font-size: 1.2rem; }
+  .zipper-capacity-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .zipper-capacity-card { padding: var(--space-3) var(--space-3); }
+  .zipper-capacity-icon { width: 50px; height: 50px; font-size: 1.5rem; }
+  .zipper-capacity-product { font-size: 0.9rem; }
+  .zipper-capacity-value { font-size: 1.1rem; }
+  .zipper-capacity-badge { font-size: 0.65rem; padding: 3px 30px; }
   .zipper-logo-marquee::before,
   .zipper-logo-marquee::after { width: 100px; }
-  .zipper-marquee-img { height: 45px; }
-  .zipper-marquee-wrapper { gap: var(--space-8); }
-  .zipper-section-heading { margin: var(--space-8) 0 var(--space-6); }
+  .zipper-marquee-img { height: 40px; }
+  .zipper-marquee-wrapper { gap: var(--space-5); }
+  .zipper-section-heading { margin: var(--space-5) 0 var(--space-3); }
 }
 
 @media (max-width: 576px) {
@@ -1525,24 +1525,24 @@ body {
   .zipper-clients-section,
   .zipper-directors-section,
   .zipper-capacity-section {
-    padding: var(--space-8) var(--space-3);
+    padding: var(--space-4) var(--space-3);
   }
-  .zipper-directors-section { padding: var(--space-8) var(--space-4); }
-  .zipper-directors-subtitle { font-size: 1rem; margin-bottom: var(--space-8); }
-  .zipper-directors-grid { gap: var(--space-5); }
+  .zipper-directors-section { padding: var(--space-4) var(--space-3); }
+  .zipper-directors-subtitle { font-size: 0.95rem; margin-bottom: var(--space-5); }
+  .zipper-directors-grid { gap: var(--space-3); }
   .zipper-director-image-wrapper { height: 220px; }
-  .zipper-director-info { padding: var(--space-5) var(--space-4); }
-  .zipper-director-name { font-size: 1.2rem; }
-  .zipper-director-designation { font-size: 0.85rem; margin-bottom: var(--space-3); padding-bottom: var(--space-3); }
-  .zipper-director-description { font-size: 0.85rem; }
-  .zipper-capacity-section { padding: var(--space-10) var(--space-4); }
-  .zipper-capacity-subtitle { font-size: 1rem; margin-bottom: var(--space-6); }
+  .zipper-director-info { padding: var(--space-3) var(--space-3); }
+  .zipper-director-name { font-size: 1.1rem; }
+  .zipper-director-designation { font-size: 0.8rem; margin-bottom: var(--space-2); padding-bottom: var(--space-2); }
+  .zipper-director-description { font-size: 0.8rem; }
+  .zipper-capacity-section { padding: var(--space-5) var(--space-3); }
+  .zipper-capacity-subtitle { font-size: 0.95rem; margin-bottom: var(--space-4); }
   .zipper-logo-marquee::before,
   .zipper-logo-marquee::after { width: 60px; }
-  .zipper-marquee-wrapper { gap: var(--space-6); }
-  .zipper-marquee-item { padding: var(--space-2) var(--space-4); }
-  .zipper-marquee-img { height: 40px; }
-  .zipper-section-heading { margin: var(--space-6) 0 var(--space-4); }
+  .zipper-marquee-wrapper { gap: var(--space-3); }
+  .zipper-marquee-item { padding: var(--space-1) var(--space-3); }
+  .zipper-marquee-img { height: 35px; }
+  .zipper-section-heading { margin: var(--space-4) 0 var(--space-3); }
 }
 
 /* ===== Animation Utilities ===== */
@@ -1580,3 +1580,4 @@ body {
     scroll-behavior: auto !important;
   }
 }
+

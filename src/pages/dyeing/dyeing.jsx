@@ -106,9 +106,9 @@ const Dyeing = () => {
     {
       name: "DYEING SERVICES",
       images: [
-        { url: process.env.PUBLIC_URL + '/images/fabric-dyeing.jpg', name: 'FABRIC DYEING' },
-        { url: process.env.PUBLIC_URL + '/images/yarn-dyeing.jpg', name: 'YARN DYEING' },
-        { url: process.env.PUBLIC_URL + '/images/garment-dyeing.jpg', name: 'GARMENT DYEING' },
+        { url: process.env.PUBLIC_URL + '/images/dyeingfebric.jpg', name: 'FABRIC DYEING' },
+        { url: process.env.PUBLIC_URL + '/images/yarn.webp', name: 'YARN DYEING' },
+        { url: process.env.PUBLIC_URL + '/images/garmentsdyeing.webp', name: 'GARMENT DYEING' },
         { url: process.env.PUBLIC_URL + '/images/reactive-dyeing.jpg', name: 'REACTIVE DYEING' },
         { url: process.env.PUBLIC_URL + '/images/disperse-dyeing.jpg', name: 'DISPERSE DYEING' },
         { url: process.env.PUBLIC_URL + '/images/pigment-dyeing.jpg', name: 'PIGMENT DYEING' },
@@ -270,7 +270,7 @@ const Dyeing = () => {
                 </div>
               </div>
               <div className="dyeing-about-image">
-                <img src={process.env.PUBLIC_URL + '/images/dyeing-factory.jpg'} alt="Convince Dyeing Factory" className="dyeing-factory-img" />
+                <img src={process.env.PUBLIC_URL + '/images/Dyeing1.jpg'} alt="Convince Dyeing Factory" className="dyeing-factory-img" />
               </div>
             </div>
           </div>

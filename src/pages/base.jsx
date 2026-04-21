@@ -85,8 +85,8 @@ const Base = ({ children }) => {
             </Link>
             {activeDropdown === 'products' && (
               <div className="dropdown-menu">
-                <Link to="/products/apparel" className="dropdown-item">Apparel Products</Link>
-                <Link to="/products/zipper" className="dropdown-item">Zipper & Accessories</Link>
+                <Link to="/aproducts" className="dropdown-item">Apparel Products</Link>
+                <Link to="/zproducts" className="dropdown-item">Zipper & Accessories</Link>
                 <Link to="/products/dyeing" className="dropdown-item">Dyeing Products</Link>
                 <Link to="/products/computer" className="dropdown-item">Computer Products</Link>
               </div>

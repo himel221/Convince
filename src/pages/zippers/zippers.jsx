@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Base2 from './base2.jsx';
 import './zippers.css';
 
 const Zippers = () => {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   
   // Scroll Animation 
@@ -71,17 +73,12 @@ const Zippers = () => {
     { product: "Sewing Thread", capacity: "6000 cone", icon: "🧶" },
   ];
 
-  // Hero Slider Images (9 photos)
+  // Hero Slider Images
   const heroImages = [
-    { url: (process.env.PUBLIC_URL + '/images/1.jpg' )},
+    { url: (process.env.PUBLIC_URL + '/images/6.jpg' )},
     { url: (process.env.PUBLIC_URL + '/images/2.jpg') },
     { url: (process.env.PUBLIC_URL + '/images/3.jpg') },
-    { url: (process.env.PUBLIC_URL + '/images/4.jpg') },
     { url: (process.env.PUBLIC_URL + '/images/5.jpg') },
-    { url: (process.env.PUBLIC_URL + '/images/6.jpg') },
-    { url: (process.env.PUBLIC_URL + '/images/7.jpg') },
-    { url: (process.env.PUBLIC_URL + '/images/8.jpg') },
-    { url: (process.env.PUBLIC_URL + '/images/9.jpg') },
   ];
 
   // Auto slide effect
@@ -138,6 +135,18 @@ const Zippers = () => {
 
   const allProducts = getAllProducts();
 
+  // Handle product click navigation - with scroll to top
+  const handleProductClick = (productName) => {
+    navigate('/zproducts', { state: { selectedProduct: productName } });
+    window.scrollTo(0, 0); // Scroll to top immediately
+  };
+
+  // Handle client click navigation - with scroll to top
+  const handleClientClick = (clientName, clientCountry) => {
+    navigate('/zbuyers', { state: { selectedClient: clientName } });
+    window.scrollTo(0, 0); // Scroll to top immediately
+  };
+
   // Clients Data with working image URLs
   const clients = [
     { 
@@ -191,7 +200,7 @@ const Zippers = () => {
   return (
     <Base2>
       <div className="zipper-container">
-        {/* Hero Slider Section - 9 Photos with Animation */}
+        {/* Hero Slider Section */}
         <div className='zipper-hero-wrapper'>
           <div className="zipper-hero-slider-section">
             <div className="zipper-slider-container zipper-hero-slider">
@@ -227,9 +236,8 @@ const Zippers = () => {
           </div>
         </div>
 
-        {/* About Section */}
+        {/* About Section - Reduced padding */}
         <section className="zipper-about-section">
-          <h2 className="zipper-section-heading">About Convince Zipper & Accessories Ltd.</h2>
           <div className="zipper-about-content">
             <div className="zipper-about-row">
               <div className="zipper-about-text">
@@ -258,7 +266,7 @@ const Zippers = () => {
                     <p className="zipper-stat-label">Skilled Workers</p>
                   </div>
                   <div className="zipper-stat-card">
-                    <h4 className="zipper-stat-number">50+</h4>
+                    <h4 className="zipper-stat-number">8+</h4>
                     <p className="zipper-stat-label">Global Clients</p>
                   </div>
                   <div className="zipper-stat-card">
@@ -274,14 +282,19 @@ const Zippers = () => {
           </div>
         </section>
 
-        {/* Products Section */}
+        {/* Products Section - Reduced padding */}
         <section className="zipper-products-section">
           <h2 className="zipper-section-heading">Our Products</h2>
           <div className="zipper-slider-container">
             <div className="zipper-slider-track">
               {/* First set - all products */}
               {allProducts.map((product, index) => (
-                <div key={index} className="zipper-product-card">
+                <div 
+                  key={index} 
+                  className="zipper-product-card"
+                  onClick={() => handleProductClick(product.name)}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div className="zipper-product-image">
                     <img 
                       src={product.url} 
@@ -302,7 +315,12 @@ const Zippers = () => {
               
               {/* Duplicate set for seamless loop */}
               {allProducts.map((product, index) => (
-                <div key={`duplicate-${index}`} className="zipper-product-card">
+                <div 
+                  key={`duplicate-${index}`} 
+                  className="zipper-product-card"
+                  onClick={() => handleProductClick(product.name)}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div className="zipper-product-image">
                     <img 
                       src={product.url} 
@@ -324,7 +342,7 @@ const Zippers = () => {
           </div>
         </section>
 
-        {/* Production Capacity Section */}
+        {/* Production Capacity Section - Reduced padding */}
         <section className="zipper-capacity-section">
           <h2 className="zipper-section-heading">Production Capacity</h2>
           <p className="zipper-capacity-subtitle">Our daily manufacturing capabilities</p>
@@ -343,14 +361,19 @@ const Zippers = () => {
           </div>
         </section>
 
-        {/* Clients Section */}
+        {/* Clients Section - Reduced padding */}
         <section className="zipper-clients-section">
           <h2 className="zipper-section-heading">Our Clients</h2>
           <p className="zipper-clients-subtitle">Trusted by leading fashion brands worldwide</p>
           
           <div className="zipper-clients-grid">
             {clients.map((client, index) => (
-              <div key={index} className="zipper-client-card">
+              <div 
+                key={index} 
+                className="zipper-client-card"
+                onClick={() => handleClientClick(client.name, client.country)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="zipper-client-logo">
                   <img 
                     src={client.logo} 
@@ -410,11 +433,16 @@ const Zippers = () => {
             </div>
           </div>
 
-          {/* Client Logos Marquee */}
+          {/* Client Logos Marquee - Also made clickable */}
           <div className="zipper-logo-marquee">
             <div className="zipper-marquee-wrapper">
               {clients.map((client, index) => (
-                <div key={index} className="zipper-marquee-item">
+                <div 
+                  key={index} 
+                  className="zipper-marquee-item"
+                  onClick={() => handleClientClick(client.name, client.country)}
+                  style={{ cursor: 'pointer' }}
+                >
                   <img 
                     src={client.logo} 
                     alt={client.name}
@@ -427,7 +455,12 @@ const Zippers = () => {
                 </div>
               ))}
               {clients.map((client, index) => (
-                <div key={`duplicate-${index}`} className="zipper-marquee-item">
+                <div 
+                  key={`duplicate-${index}`} 
+                  className="zipper-marquee-item"
+                  onClick={() => handleClientClick(client.name, client.country)}
+                  style={{ cursor: 'pointer' }}
+                >
                   <img 
                     src={client.logo} 
                     alt={client.name}
@@ -443,7 +476,7 @@ const Zippers = () => {
           </div>
         </section>
 
-        {/* Board of Directors Section */}
+        {/* Board of Directors Section - Reduced padding */}
         <section className="zipper-directors-section">
           <h2 className="zipper-section-heading">Board of Directors</h2>
           <p className="zipper-directors-subtitle">Meet the visionary leaders behind Convince Zipper & Accessories Ltd.</p>
