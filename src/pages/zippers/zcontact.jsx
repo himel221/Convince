@@ -1,6 +1,6 @@
 // ZipperContact.jsx - Professional Contact Page Component for Zipper Division
 import React, { useEffect, useState } from 'react';
-import Base from '../base.jsx';
+import Base from './base2.jsx';
 import './zcontact.css';
 
 const ZipperContact = () => {
@@ -310,10 +310,20 @@ const ZipperContact = () => {
         <div className="zipper-contact-cta-section">
           <h2>Ready to Work With Us?</h2>
           <p>Let's discuss how we can help with your zipper manufacturing needs</p>
-          <div className="zipper-contact-cta-buttons">
-            <button className="zipper-contact-cta-btn zipper-contact-cta-primary">Request a Quote</button>
-            <button className="zipper-contact-cta-btn zipper-contact-cta-secondary">Schedule a Meeting</button>
-          </div>
+<div className="zipper-contact-cta-buttons">
+  <button 
+    className="zipper-contact-cta-btn zipper-contact-cta-primary"
+    onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=info@convincegroup.com&su=Quote%20Request&body=I%20would%20like%20to%20request%20a%20quote%20for%20zippers.", "_blank")}
+  >
+    Request a Quote
+  </button>
+  <button 
+    className="zipper-contact-cta-btn zipper-contact-cta-secondary"
+    onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=info@convincegroup.com&su=Schedule%20Meeting&body=I%20would%20like%20to%20schedule%20a%20meeting.", "_blank")}
+  >
+    Schedule a Meeting
+  </button>
+</div>
         </div>
       </div>
     </Base>

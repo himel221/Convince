@@ -35,6 +35,61 @@ const Products = () => {
     };
   }, []);
 
+  // Handle Request Quote - Opens Gmail compose window directly
+  const handleRequestQuote = (productName, productCode, categoryName) => {
+    const companyEmail = "cal@convincebd.biz";
+    const subject = `Quote Request: ${productName} (${productCode})`;
+    const body = `Dear Convince Group Team,
+
+I would like to request a quote for the following product:
+
+Product Name: ${productName}
+Product Code: ${productCode}
+Category: ${categoryName}
+
+Please provide me with the following details:
+- Price per unit
+- Minimum Order Quantity (MOQ)
+- Available colors/sizes
+- Delivery timeline
+- Shipping terms
+
+Looking forward to your response.
+
+Best regards,
+[Your Name]
+[Your Company Name]
+[Your Contact Number]`;
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${companyEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, '_blank');
+  };
+
+  // Handle general contact click for CTA button
+  const handleContactClick = () => {
+    const companyEmail = "cal@convincebd.biz";
+    const subject = "Product Inquiry - Convince Zipper";
+    const body = `Dear Convince Zipper Team,
+
+I am interested in your zipper products and would like to get more information.
+
+Please contact me with details about:
+- Product catalog
+- Pricing
+- Minimum Order Quantities
+- Sample policy
+
+Looking forward to your response.
+
+Best regards,
+[Your Name]
+[Your Company]
+[Your Phone Number]`;
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${companyEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, '_blank');
+  };
+
   // Product Data with Categories
   const productCategories = [
     {
@@ -249,8 +304,8 @@ const Products = () => {
   return (
     <Base2>
       <div className="products-container">
-        {/* Hero Slider Section */}
-        <div className='products-hero-wrapper'>
+        {/* Hero Slider Section - Commented out */}
+        {/* <div className='products-hero-wrapper'>
           <div className="products-hero-slider-section">
             <div className="products-slider-container products-hero-slider">
               {heroImages.map((image, index) => (
@@ -267,11 +322,9 @@ const Products = () => {
                 </div>
               ))}
               
-              {/* Navigation Arrows */}
               <button className="products-slider-arrow products-prev" onClick={prevSlide}>❮</button>
               <button className="products-slider-arrow products-next" onClick={nextSlide}>❯</button>
               
-              {/* Dots Navigation */}
               <div className="products-slider-dots">
                 {heroImages.map((_, index) => (
                   <span 
@@ -283,7 +336,7 @@ const Products = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Products Header */}
         <div className="products-header-section">
@@ -358,7 +411,12 @@ const Products = () => {
                       </ul>
                     </div>
                     
-                    <button className="products-inquiry-btn">Request Quote</button>
+                    <button 
+                      className="products-inquiry-btn"
+                      onClick={() => handleRequestQuote(product.name, product.code, product.categoryName)}
+                    >
+                      Request Quote
+                    </button>
                   </div>
                 </div>
               ))}
@@ -419,7 +477,9 @@ const Products = () => {
         <div className="products-cta-section">
           <h2>Ready to Source Quality Products?</h2>
           <p>Contact our sales team for quotes, samples, and technical specifications</p>
-          <button className="products-cta-btn">Contact Us Today</button>
+          <button className="products-cta-btn" onClick={handleContactClick}>
+            Contact Us Today
+          </button>
         </div>
       </div>
     </Base2>

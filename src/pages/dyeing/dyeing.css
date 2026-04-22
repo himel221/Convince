@@ -269,47 +269,15 @@ body {
 
 /* ===== SECTION HEADINGS ===== */
 .dyeing-section-heading {
-  text-align: center;
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   color: var(--dark);
-  margin: var(--space-12) 0 var(--space-8);
+  margin-bottom: var(--space-2);
+  font-weight: 700;
+  text-align: center;
   position: relative;
-  padding-bottom: var(--space-6);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  z-index: 1;
 }
 
-.dyeing-section-heading.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dyeing-section-heading::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 4px;
-  background: var(--primary);
-  border-radius: var(--radius-full);
-}
-
-.dyeing-section-heading::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent-1));
-  border-radius: var(--radius-full);
-  opacity: 0.7;
-}
 
 /* ===== ABOUT SECTION ===== */
 .dyeing-about-section {
@@ -318,6 +286,7 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
+
 }
 
 .dyeing-about-section::before {
@@ -1513,4 +1482,86 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+/* Add these to your dyeing.css file to reduce space between sections */
+
+/* Reduce section margins */
+.dyeing-about-section,
+.dyeing-products-section,
+.dyeing-capacity-section,
+.dyeing-clients-section,
+.dyeing-directors-section {
+  padding: 2rem 2rem;
+  margin-bottom: 0;
+}
+
+/* Reduce heading margins */
+.dyeing-section-heading {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+}
+
+.dyeing-section-heading::after {
+  bottom: -8px;
+}
+
+/* Reduce stats container spacing */
+.dyeing-stats-container {
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* Reduce about section padding */
+.dyeing-about-text {
+  padding-right: 1rem;
+}
+
+.dyeing-about-paragraph {
+  margin-bottom: 0.75rem;
+}
+
+/* Reduce product slider section spacing */
+.dyeing-products-section .dyeing-slider-container {
+  padding: 0.5rem 0;
+}
+
+/* Reduce capacity cards spacing */
+.dyeing-capacity-grid {
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dyeing-capacity-card {
+  padding: 0.75rem;
+}
+
+/* Reduce clients grid spacing */
+.dyeing-clients-grid {
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Reduce testimonials spacing */
+.dyeing-testimonials-section {
+  margin: 1rem 0;
+}
+
+.dyeing-testimonials-grid {
+  gap: 1rem;
+}
+
+/* Reduce marquee spacing */
+.dyeing-logo-marquee {
+  padding: 0.75rem 0;
+  margin-top: 1rem;
+}
+
+/* Reduce directors spacing */
+.dyeing-directors-grid {
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.dyeing-director-card {
+  margin-bottom: 0;
 }

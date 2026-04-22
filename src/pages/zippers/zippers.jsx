@@ -200,7 +200,10 @@ const Zippers = () => {
   return (
     <Base2>
       <div className="zipper-container">
-        {/* Hero Slider Section */}
+          <div className="zipper-hero-section">
+          <h2>About</h2>
+          </div>
+        {/* Hero Slider Section 
         <div className='zipper-hero-wrapper'>
           <div className="zipper-hero-slider-section">
             <div className="zipper-slider-container zipper-hero-slider">
@@ -218,11 +221,10 @@ const Zippers = () => {
                 </div>
               ))}
               
-              {/* Navigation Arrows */}
+              
               <button className="zipper-slider-arrow zipper-prev" onClick={prevSlide}>❮</button>
               <button className="zipper-slider-arrow zipper-next" onClick={nextSlide}>❯</button>
               
-              {/* Dots Navigation */}
               <div className="zipper-slider-dots">
                 {heroImages.map((_, index) => (
                   <span 
@@ -234,7 +236,9 @@ const Zippers = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
+
+
 
         {/* About Section - Reduced padding */}
         <section className="zipper-about-section">

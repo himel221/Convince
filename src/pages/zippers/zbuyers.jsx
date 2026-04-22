@@ -248,7 +248,7 @@ const Buyers = () => {
   return (
     <Base2>
       <div className="buyers-container">
-        {/* Hero Slider Section */}
+        {/* Hero Slider Section 
         <div className='buyers-hero-wrapper'>
           <div className="buyers-hero-slider-section">
             <div className="buyers-slider-container buyers-hero-slider">
@@ -280,7 +280,7 @@ const Buyers = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         {/* Introduction Section */}
         <div className="buyers-intro-section">
@@ -416,10 +416,20 @@ const Buyers = () => {
         <div className="buyers-cta-section">
           <h2>Become Our Partner</h2>
           <p>Join our growing family of satisfied buyers and experience the Convince Zipper difference</p>
-          <div className="buyers-cta-buttons">
-            <button className="buyers-cta-btn buyers-cta-primary">Request a Quote</button>
-            <button className="buyers-cta-btn buyers-cta-secondary">Contact Sales</button>
-          </div>
+<div className="buyers-cta-buttons">
+  <button 
+    className="buyers-cta-btn buyers-cta-primary"
+    onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=info@convincegroup.com&su=Quote%20Request&body=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for:%0A%0AProduct:%20%0AQuantity:%20%0ARequirements:%20", "_blank")}
+  >
+    Request a Quote
+  </button>
+  <button 
+    className="buyers-cta-btn buyers-cta-secondary"
+    onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=info@convincegroup.com&su=Sales%20Inquiry&body=Hi,%20I'm%20interested%20in%20your%20products.%20Please%20contact%20me%20about:%0A%0A%0ABest%20regards,%0A%5BYour%20Name%5D", "_blank")}
+  >
+    Contact Sales
+  </button>
+</div>
         </div>
       </div>
     </Base2>

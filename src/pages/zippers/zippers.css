@@ -105,6 +105,18 @@ body {
   flex-direction: column;
 }
 
+.zipper-hero-section{
+  text-align: center;
+  font-size: clamp(1rem, 3vw, 2rem);
+  font-weight: 700;
+  color: black;
+  margin: var(--space-4) 0 var(--space-2);
+  position: relative;
+  padding-bottom: var(--space-2);
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
 /* ===== HERO SLIDER SECTION - Professional Size ===== */
 .zipper-hero-wrapper {
   width: 100%;

@@ -543,10 +543,7 @@
   transition: all 0.3s ease;
 }
 
-.capability-card:hover {
-  transform: translateY(-10px);
-  background: rgba(255,255,255,0.2);
-}
+
 
 .capability-icon {
   font-size: 3rem;

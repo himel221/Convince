@@ -1,6 +1,6 @@
 // Contact.jsx - Professional Contact Page Component with CONVINCE GROUP LTD.
 import React, { useEffect, useState } from 'react';
-import Base from '../base.jsx';
+import Base from './base1.jsx';
 import './acontact.css';
 
 const Contact = () => {
@@ -310,10 +310,20 @@ const Contact = () => {
         <div className="apparels-contact-cta-section">
           <h2>Ready to Work With Us?</h2>
           <p>Let's discuss how we can help with your apparel manufacturing needs</p>
-          <div className="apparels-contact-cta-buttons">
-            <button className="apparels-contact-cta-btn apparels-contact-cta-primary">Request a Quote</button>
-            <button className="apparels-contact-cta-btn apparels-contact-cta-secondary">Schedule a Meeting</button>
-          </div>
+<div className="apparels-contact-cta-buttons">
+  <button 
+    className="apparels-contact-cta-btn apparels-contact-cta-primary"
+    onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=info@convincegroup.com&su=Quote%20Request%20-%20Apparels&body=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20apparel%20products:%0A%0AProduct%20Type:%20%0AQuantity:%20%0ASize/Color:%20%0ASpecial%20Requirements:%20%0A%0AThank%20you!", "_blank")}
+  >
+    Request a Quote
+  </button>
+  <button 
+    className="apparels-contact-cta-btn apparels-contact-cta-secondary"
+    onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=info@convincegroup.com&su=Schedule%20a%20Meeting%20-%20Apparels&body=Hi,%20I%20would%20like%20to%20schedule%20a%20meeting%20to%20discuss%20apparel%20requirements.%0A%0APreferred%20Date:%20%0APreferred%20Time:%20%0AMeeting%20Type%20(Online/In-person):%20%0ATopics%20to%20discuss:%20%0A%0ABest%20regards,%0A%5BYour%20Name%5D", "_blank")}
+  >
+    Schedule a Meeting
+  </button>
+</div>
         </div>
       </div>
     </Base>

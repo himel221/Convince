@@ -71,7 +71,7 @@ const Base = ({ children }) => {
                 <Link to="/apparels" className="dropdown-item">Convince Apparels Ltd.</Link>
                 <Link to="/zippers" className="dropdown-item">Convince Zipper & Accessories Ltd.</Link>
                 <Link to="/dyeing" className="dropdown-item">Convince Dyeing Industries Ltd.</Link>
-                <Link to="/computer" className="dropdown-item">Convince Computer Ltd.</Link>
+                <Link to="https://www.convincebd.com/" className="dropdown-item">Convince Computer Ltd.</Link>
               </div>
             )}
           </div>
@@ -87,8 +87,8 @@ const Base = ({ children }) => {
               <div className="dropdown-menu">
                 <Link to="/aproducts" className="dropdown-item">Apparel Products</Link>
                 <Link to="/zproducts" className="dropdown-item">Zipper & Accessories</Link>
-                <Link to="/products/dyeing" className="dropdown-item">Dyeing Products</Link>
-                <Link to="/products/computer" className="dropdown-item">Computer Products</Link>
+                <Link to="/dproducts" className="dropdown-item">Dyeing Products</Link>
+                <Link to="https://www.convincebd.com/" className="dropdown-item">Software Solutions</Link>
               </div>
             )}
           </div>
@@ -112,7 +112,7 @@ const Base = ({ children }) => {
           <div className="footer-section">
             <div className="footer-logo">
               <img 
-                src={process.env.PUBLIC_URL + '/images/sweater1.jpg'}
+                src={process.env.PUBLIC_URL + '/images/cg.png'}
                 alt='Convince Group'
                 className='footer-logo-img'
               />
@@ -150,9 +150,9 @@ const Base = ({ children }) => {
             <h4>Our Companies</h4>
             <ul className="footer-links">
               <li><Link to="/apparels">Convince Apparels</Link></li>
-              <li><Link to="/zipper">Convince Zipper</Link></li>
+              <li><Link to="/zippers">Convince Zipper</Link></li>
               <li><Link to="/dyeing">Convince Dyeing</Link></li>
-              <li><Link to="/computer">Convince Computer</Link></li>
+              <li><Link to="https://www.convincebd.com/">Convince Computer</Link></li>
             </ul>
           </div>
 

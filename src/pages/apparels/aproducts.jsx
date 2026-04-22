@@ -1,5 +1,5 @@
-// apparels-products.jsx - Apparel Products Showcase Component
-import React, { useEffect, useState } from 'react';
+// apparels-products.jsx - Apparel Products Showcase Component (Fully Fixed Filters)
+import React, { useEffect, useState, useMemo } from 'react';
 import Base from './base1.jsx';
 import './aproducts.css';
 
@@ -8,37 +8,10 @@ const ApparelsProducts = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   
-  // Scroll Animation 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      },
-      { threshold: 0.2, rootMargin: '0px' }
-    );
-
-    const sections = document.querySelectorAll(
-      '.apparels-products-container .apparels-section-heading, .apparels-products-container .apparels-card, .apparels-products-container .apparels-category-card, .apparels-products-container .capability-card'
-    );
-    
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
-    };
-  }, []);
-
-  // Apparel Product Data with Categories
+  // Apparel Product Data with Categories (All unique category names)
   const productCategories = [
     {
+      id: 'sweaters',
       name: "Sweaters",
       description: "Premium quality sweaters for all seasons",
       icon: "🧥",
@@ -67,10 +40,43 @@ const ApparelsProducts = () => {
           image: process.env.PUBLIC_URL + '/images/cardigan.jpg', 
           description: 'Versatile cardigan with button closure, ideal for layering.',
           specifications: ['Fabric: Acrylic-Wool Blend', 'Sizes: S-XXL', 'Colors: 12+ options', 'Features: Button closure']
+        },
+        { 
+          id: 6,
+          name: 'Button Sweater', 
+          code: 'SW-006',
+          image: process.env.PUBLIC_URL + '/images/Buttonsweater.jpg', 
+          description: 'Classic sweater with button closure for a sophisticated look.',
+          specifications: ['Fabric: 80% Cotton, 20% Polyester', 'Sizes: S-XXL', 'Colors: 12+ options', 'Weight: 300 GSM']
+        },
+        { 
+          id: 7,
+          name: 'Fair Isle Sweater', 
+          code: 'SW-007',
+          image: process.env.PUBLIC_URL + '/images/Fairsweater.jpg', 
+          description: 'Traditional Fair Isle patterned sweater with colorful designs.',
+          specifications: ['Fabric: 100% Cotton', 'Sizes: S-XXL', 'Colors: 10+ options', 'Weight: 280 GSM']
+        },
+        { 
+          id: 8,
+          name: 'Versatile Sweater', 
+          code: 'SW-008',
+          image: process.env.PUBLIC_URL + '/images/VersatileSweater.jpg', 
+          description: 'Versatile sweater suitable for both casual and formal occasions.',
+          specifications: ['Fabric: 100% Cotton', 'Sizes: S-XXL', 'Colors: 10+ options', 'Weight: 280 GSM']
+        },
+        { 
+          id: 9,
+          name: 'Striped Pattern Sweater', 
+          code: 'SW-009',
+          image: process.env.PUBLIC_URL + '/images/StripedSweater.jpg', 
+          description: 'Stylish striped pattern sweater for a trendy look.',
+          specifications: ['Fabric: 100% Cotton', 'Sizes: S-XXL', 'Colors: 10+ options', 'Weight: 280 GSM']
         }
       ]
     },
     {
+      id: 'vests',
       name: "Vests",
       description: "Stylish and functional vests",
       icon: "👕",
@@ -81,86 +87,46 @@ const ApparelsProducts = () => {
           name: 'Waistcoat Vest', 
           code: 'VS-004',
           image: process.env.PUBLIC_URL + '/images/Waistcoat.jpg', 
-          description: 'Lightweight waistcoat vest with excellent insulation for cold weather.',
-          specifications: ['Filling: Polyester Fiber', 'Sizes: S-XXL', 'Colors: 6+ options', 'Features: Zipper closure']
+          description: 'Elegant waistcoat vest perfect for formal and semi-formal occasions.',
+          specifications: ['Fabric: Polyester Blend', 'Sizes: S-XXL', 'Colors: 6+ options', 'Features: Button closure']
         },
         { 
           id: 5,
-          name: 'Knit Vests', 
+          name: 'Knit Vest', 
           code: 'VS-005',
           image: process.env.PUBLIC_URL + '/images/KnitVests.jpg', 
-          description: 'Classic Knit Vests with diamond pattern for a sophisticated look.',
-          specifications: ['Fabric: Nylon/Polyester', 'Sizes: S-XXL', 'Colors: 5+ options', 'Features: Snap buttons']
+          description: 'Comfortable knit vest with classic pattern for a sophisticated look.',
+          specifications: ['Fabric: Acrylic Blend', 'Sizes: S-XXL', 'Colors: 5+ options', 'Features: V-neck design']
         }
       ]
     },
     {
-      name: "Sweaters",
-      description: "Comfortable everyday sweatshirts",
-      icon: "👚",
-      bgColor: "#fff8f0",
-      products: [
-        { 
-          id: 6,
-          name: 'Button sweater', 
-          code: 'SS-006',
-          image: process.env.PUBLIC_URL + '/images/Buttonsweater.jpg', 
-          description: 'Classic sweater with adjustable button.',
-          specifications: ['Fabric: 80% Cotton, 20% Polyester', 'Sizes: S-XXL', 'Colors: 12+ options', 'Weight: 300 GSM']
-        },
-        { 
-          id: 7,
-          name: 'Fair Isle sweater', 
-          code: 'SS-007',
-          image: process.env.PUBLIC_URL + '/images/Fairsweater.jpg', 
-          description: 'Soft and comfortable fair isle sweater for daily wear.',
-          specifications: ['Fabric: 100% Cotton', 'Sizes: S-XXL', 'Colors: 10+ options', 'Weight: 280 GSM']
-        },
-    { 
-          id: 8,
-          name: 'Versatile Sweater', 
-          code: 'SS-008',
-          image: process.env.PUBLIC_URL + '/images/VersatileSweater.jpg', 
-          description: 'Soft and comfortable versatile sweater for daily wear.',
-          specifications: ['Fabric: 100% Cotton', 'Sizes: S-XXL', 'Colors: 10+ options', 'Weight: 280 GSM']
-        },
-
-        { 
-          id: 9,
-          name: 'Striped Pattern Sweater', 
-          code: 'SS-009',
-          image: process.env.PUBLIC_URL + '/images/StripedSweater.jpg', 
-          description: 'Soft, comfortable and easy to wear for any occasion.',
-          specifications: ['Fabric: 100% Cotton', 'Sizes: S-XXL', 'Colors: 10+ options', 'Weight: 280 GSM']
-        }
-      ]
-    },
-    {
+      id: 'knitwear',
       name: "Knitwear",
       description: "Fine knitwear collection",
       icon: "🧶",
       bgColor: "#f0f0ff",
       products: [
         { 
-          id: 10,
+          id: 12,
           name: 'Fine Gauge Knit', 
-          code: 'KW-010',
+          code: 'KW-012',
           image: process.env.PUBLIC_URL + '/images/fineknit.jpg', 
           description: 'Elegant fine gauge knit sweater with intricate pattern details.',
           specifications: ['Fabric: 100% Merino Wool', 'Sizes: S-XXL', 'Colors: 10+ options', 'Gauge: 12gg']
         },
         { 
-          id: 11,
+          id: 13,
           name: 'Chunky Knit', 
-          code: 'KW-011',
+          code: 'KW-013',
           image: process.env.PUBLIC_URL + '/images/chunkyknit.jpg', 
           description: 'Heavyweight chunky knit sweater for maximum warmth and style.',
           specifications: ['Fabric: Acrylic Blend', 'Sizes: S-XXL', 'Colors: 8+ options', 'Gauge: 3gg']
         },
         { 
-          id: 12,
+          id: 14,
           name: 'Cable Knit', 
-          code: 'KW-012',
+          code: 'KW-014',
           image: process.env.PUBLIC_URL + '/images/cableknit.jpg', 
           description: 'Classic cable knit sweater with timeless design elements.',
           specifications: ['Fabric: Cotton-Acrylic Blend', 'Sizes: S-XXL', 'Colors: 6+ options', 'Pattern: Cable design']
@@ -169,30 +135,33 @@ const ApparelsProducts = () => {
     }
   ];
 
-  // Get all products for search
-  const getAllProducts = () => {
-    let allProducts = [];
+  // Get all products and add category info using useMemo to prevent unnecessary recalculations
+  const allProducts = useMemo(() => {
+    let products = [];
     productCategories.forEach(category => {
       category.products.forEach(product => {
-        allProducts.push({
+        products.push({
           ...product,
           categoryName: category.name,
-          categoryIcon: category.icon
+          categoryIcon: category.icon,
+          categoryId: category.id
         });
       });
     });
-    return allProducts;
-  };
+    return products;
+  }, []);
 
-  // Filter products based on category and search
-  const getFilteredProducts = () => {
-    let filtered = getAllProducts();
+  // Filter products based on category and search using useMemo
+  const filteredProducts = useMemo(() => {
+    let filtered = [...allProducts];
     
+    // Filter by category
     if (activeCategory !== 'all') {
-      filtered = filtered.filter(product => product.categoryName === activeCategory);
+      filtered = filtered.filter(product => product.categoryId === activeCategory);
     }
     
-    if (searchTerm.trim()) {
+    // Filter by search term
+    if (searchTerm.trim() !== '') {
       filtered = filtered.filter(product => 
         product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         product.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -201,9 +170,108 @@ const ApparelsProducts = () => {
     }
     
     return filtered;
+  }, [activeCategory, searchTerm, allProducts]);
+
+  // Handler for category change
+  const handleCategoryChange = (categoryId) => {
+    setActiveCategory(categoryId);
+    // Reset search term when changing category (optional)
+    // setSearchTerm('');
   };
 
-  const filteredProducts = getFilteredProducts();
+  // Handler for search change
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // Handler for clear filters
+  const clearFilters = () => {
+    setActiveCategory('all');
+    setSearchTerm('');
+  };
+
+  // Scroll Animation 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: '0px' }
+    );
+
+    const sections = document.querySelectorAll(
+      '.apparels-products-container .apparels-section-heading, .apparels-products-container .apparels-card, .apparels-products-container .apparels-category-card, .apparels-products-container .capability-card'
+    );
+    
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  }, [filteredProducts]); // Re-run when filtered products change
+
+  // Handle Request Quote - Opens Gmail compose window directly
+  const handleRequestQuote = (productName, productCode, categoryName) => {
+    const companyEmail = "cal@convincebd.biz";
+    const subject = `Quote Request: ${productName} (${productCode})`;
+    const body = `Dear Convince Group Team,
+
+I would like to request a quote for the following product:
+
+Product Name: ${productName}
+Product Code: ${productCode}
+Category: ${categoryName}
+
+Please provide me with the following details:
+- Price per unit
+- Minimum Order Quantity (MOQ)
+- Available colors/sizes
+- Delivery timeline
+- Shipping terms
+
+Looking forward to your response.
+
+Best regards,
+[Your Name]
+[Your Company Name]
+[Your Contact Number]`;
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${companyEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, '_blank');
+  };
+
+  // Handle general contact click
+  const handleContactClick = () => {
+    const companyEmail = "cal@convincebd.biz";
+    const subject = "Product Inquiry - Convince Apparels";
+    const body = `Dear Convince Apparels Team,
+
+I am interested in your apparel products and would like to get more information.
+
+Please contact me with details about:
+- Product catalog
+- Pricing
+- Minimum Order Quantities
+- Sample policy
+
+Looking forward to your response.
+
+Best regards,
+[Your Name]
+[Your Company]
+[Your Phone Number]`;
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${companyEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, '_blank');
+  };
 
   // Helper function for image fallbacks
   const getFallbackImage = (text, width = 350, height = 280) => {
@@ -242,7 +310,7 @@ const ApparelsProducts = () => {
   return (
     <Base>
       <div className="apparels-products-container">
-        {/* Hero Slider Section */}
+        {/* Hero Slider Section 
         <div className='apparels-hero-wrapper'>
           <div className="apparels-hero-slider-section">
             <div className="apparels-slider-container apparels-hero-slider">
@@ -274,7 +342,7 @@ const ApparelsProducts = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         {/* Products Header */}
         <div className="apparels-header-section">
@@ -291,7 +359,7 @@ const ApparelsProducts = () => {
               type="text" 
               placeholder="Search products by name, code, or description..." 
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleSearchChange}
               className="apparels-search-input"
             />
             <span className="apparels-search-icon">🔍</span>
@@ -300,64 +368,73 @@ const ApparelsProducts = () => {
           <div className="apparels-category-filters">
             <button 
               className={`apparels-filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('all')}
+              onClick={() => handleCategoryChange('all')}
             >
               All Products
             </button>
-            {productCategories.map((category, index) => (
+            {productCategories.map((category) => (
               <button 
-                key={index}
-                className={`apparels-filter-btn ${activeCategory === category.name ? 'active' : ''}`}
-                onClick={() => setActiveCategory(category.name)}
+                key={category.id}
+                className={`apparels-filter-btn ${activeCategory === category.id ? 'active' : ''}`}
+                onClick={() => handleCategoryChange(category.id)}
               >
                 {category.icon} {category.name}
               </button>
             ))}
           </div>
+          
         </div>
 
         {/* Products Grid */}
         <div className="apparels-grid-section">
           {filteredProducts.length > 0 ? (
-            <div className="apparels-grid">
-              {filteredProducts.map((product) => (
-                <div key={product.id} className="apparels-card">
-                  <div className="apparels-card-image">
-                    <img 
-                      src={product.image} 
-                      alt={product.name}
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = getFallbackImage(product.name, 350, 280);
-                      }}
-                    />
-                    <span className="apparels-card-code">{product.code}</span>
-                    <div className="apparels-card-category-badge">
-                      {product.categoryIcon} {product.categoryName}
+            <>
+
+              <div className="apparels-grid">
+                {filteredProducts.map((product, index) => (
+                  <div key={product.id} className="apparels-card" style={{ animationDelay: `${index * 0.05}s` }}>
+                    <div className="apparels-card-image">
+                      <img 
+                        src={product.image} 
+                        alt={product.name}
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = getFallbackImage(product.name, 350, 280);
+                        }}
+                      />
+                      <span className="apparels-card-code">{product.code}</span>
+                      <div className="apparels-card-category-badge">
+                        {product.categoryIcon} {product.categoryName}
+                      </div>
+                    </div>
+                    <div className="apparels-card-content">
+                      <h3 className="apparels-card-title">{product.name}</h3>
+                      <p className="apparels-card-description">{product.description}</p>
+                      
+                      <div className="apparels-specs">
+                        <h4>Specifications:</h4>
+                        <ul>
+                          {product.specifications.map((spec, idx) => (
+                            <li key={idx}>{spec}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <button 
+                        className="apparels-inquiry-btn"
+                        onClick={() => handleRequestQuote(product.name, product.code, product.categoryName)}
+                      >
+                        Request Quote
+                      </button>
                     </div>
                   </div>
-                  <div className="apparels-card-content">
-                    <h3 className="apparels-card-title">{product.name}</h3>
-                    <p className="apparels-card-description">{product.description}</p>
-                    
-                    <div className="apparels-specs">
-                      <h4>Specifications:</h4>
-                      <ul>
-                        {product.specifications.map((spec, idx) => (
-                          <li key={idx}>{spec}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <button className="apparels-inquiry-btn">Request Quote</button>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </>
           ) : (
             <div className="apparels-no-results">
               <p>No products found matching your search criteria.</p>
-              <button onClick={() => {setActiveCategory('all'); setSearchTerm('');}}>
+              <button onClick={clearFilters}>
                 Clear Filters
               </button>
             </div>
@@ -435,7 +512,9 @@ const ApparelsProducts = () => {
         <div className="apparels-cta-section">
           <h2>Ready to Source Premium Apparel?</h2>
           <p>Contact our sales team for quotes, samples, and technical specifications</p>
-          <button className="apparels-cta-btn">Contact Us Today</button>
+          <button className="apparels-cta-btn" onClick={handleContactClick}>
+            Contact Us Today
+          </button>
         </div>
       </div>
     </Base>

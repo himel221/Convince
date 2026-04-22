@@ -44,17 +44,17 @@ const Base3 = ({ children }) => {
           </Link>
 
           <div className='nav-menu'>
-            <Link to="/zippers">
-              <li className={isActive('/zippers') ? 'nav-item active' : 'nav-item'}>Home</li>
+            <Link to="/dyeing">
+              <li className={isActive('/dyeing') ? 'nav-item active' : 'nav-item'}>Home</li>
             </Link>
-            <Link to="/#">
-              <li className={isActive('/about') ? 'nav-item active' : 'nav-item'}>Products</li>
+            <Link to="/dproducts">
+              <li className={isActive('/dproducts') ? 'nav-item active' : 'nav-item'}>Products</li>
             </Link>
-            <Link to="/#">
-              <li className={isActive('/companies') ? 'nav-item active' : 'nav-item'}>Buyers</li>
+            <Link to="/dbuyers">
+              <li className={isActive('/dbuyers') ? 'nav-item active' : 'nav-item'}>Buyers</li>
             </Link>
-            <Link to="/#">
-              <li className={isActive('/products') ? 'nav-item active' : 'nav-item'}>Contact Us</li>
+            <Link to="/dcontact">
+              <li className={isActive('/dcontact') ? 'nav-item active' : 'nav-item'}>Contact Us</li>
             </Link>
           </div>
         </div>

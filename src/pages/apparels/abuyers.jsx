@@ -259,7 +259,7 @@ const ApparelsBuyers = () => {
   return (
     <Base>
       <div className="apparels-buyers-container">
-        {/* Hero Slider Section */}
+        {/* Hero Slider Section 
         <div className='apparels-hero-wrapper'>
           <div className="apparels-hero-slider-section">
             <div className="apparels-slider-container apparels-hero-slider">
@@ -291,7 +291,7 @@ const ApparelsBuyers = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         {/* Introduction Section */}
         <div className="apparels-intro-section">
@@ -428,10 +428,20 @@ const ApparelsBuyers = () => {
         <div className="apparels-cta-section1">
           <h2>Become Our Partner</h2>
           <p>Join our growing family of satisfied apparel buyers and experience the Convince Apparels difference</p>
-          <div className="apparels-cta-buttons">
-            <button className="apparels-cta-btn apparels-cta-primary">Request a Quote</button>
-            <button className="apparels-cta-btn apparels-cta-secondary">Contact Sales</button>
-          </div>
+<div className="apparels-cta-buttons">
+  <button 
+    className="apparels-cta-btn apparels-cta-primary"
+    onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=info@convincegroup.com&su=Quote%20Request%20-%20Apparels&body=Hello,%20I%20would%20like%20to%20request%20a%20quote%20for%20apparel%20products:%0A%0AProduct%20Type:%20%0AQuantity:%20%0ASize/Color:%20%0ASpecial%20Requirements:%20%0A%0AThank%20you!", "_blank")}
+  >
+    Request a Quote
+  </button>
+  <button 
+    className="apparels-cta-btn apparels-cta-secondary"
+    onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=info@convincegroup.com&su=Sales%20Inquiry%20-%20Apparels&body=Hi,%20I'm%20interested%20in%20your%20apparel%20products.%20Please%20contact%20me%20about:%0A%0A%0ABest%20regards,%0A%5BYour%20Name%5D", "_blank")}
+  >
+    Contact Sales
+  </button>
+</div>
         </div>
       </div>
     </Base>

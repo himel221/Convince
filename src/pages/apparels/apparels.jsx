@@ -217,42 +217,9 @@ const Apparels = () => {
   return (
     <Base>
       <div className="apparel-container">
-        {/* Hero Video Section with Fallback */}
-        <div className='apparel-hero-wrapper'>
-          <div className="apparel-video-section">
-            <div className="apparel-video-frame">
-              {!videoError ? (
-                <video 
-                  ref={videoRef}
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                  className="apparel-bg-video"
-                  poster={process.env.PUBLIC_URL + '/images/sweater.jpg'}
-                >
-                  <source src={process.env.PUBLIC_URL + '/images/apparels.mp4'} type="video/mp4" />
-                  <source src={process.env.PUBLIC_URL + '/images/apparels.webm'} type="video/webm" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <div className="apparel-video-fallback">
-                  <img 
-                    src={process.env.PUBLIC_URL + '/images/sweater.jpg'} 
-                    alt="Convince Apparels"
-                    className="apparel-bg-video"
-                  />
-                </div>
-              )}
-              <div className="apparel-video-overlay"></div>
-              <div className="apparel-video-caption">
-                <h1 className="apparel-hero-title">Welcome to Convince Apparels Ltd.</h1>
-                <p className="apparel-hero-subtitle">Excellence in Fashion Manufacturing</p>
-              </div>
-            </div>
+        <div className="apparel-hero-section">
+          <h2>About</h2>
           </div>
-        </div>
-
         {/* About Section - Image on Right, Text on Left */}
         <section className="apparel-about-section">
           <div className="apparel-about-content">

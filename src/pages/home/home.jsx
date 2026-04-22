@@ -300,10 +300,10 @@ const Home = () => {
           
           <div 
             className="card clickable-card" 
-            onClick={() => navigateToCompany('/computer')}
+            onClick={() => navigateToCompany('https://www.convincebd.com/')}
             role="button"
             tabIndex={0}
-            onKeyPress={(e) => e.key === 'Enter' && navigateToCompany('computer')}
+            onKeyPress={(e) => e.key === 'Enter' && navigateToCompany('https://www.convincebd.com/')}
           >
             <img src={process.env.PUBLIC_URL + '/images/CCL.jpg'} alt="Computer Ltd" style={{height:150, width:250}}/>
             <h3>CONVINCE COMPUTER LIMITED</h3>

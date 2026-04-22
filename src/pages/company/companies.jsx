@@ -76,7 +76,7 @@ const Companies = () => {
       gradient: 'linear-gradient(135deg, #047857, #059669)',
       icon: '💻',
       color: '#047857',
-      link: '/computer'
+      link: 'https://www.convincebd.com/'
     }
   ];
 
@@ -150,6 +150,8 @@ const Companies = () => {
 
     const benefitCards = document.querySelectorAll('.benefit-card');
     benefitCards.forEach(card => observer.observe(card));
+
+
 
     // Scroll progress handler
     const handleScroll = () => {
